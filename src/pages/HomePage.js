@@ -1,5 +1,9 @@
+import HomeSlider from '../components/HomeSlider';
+
 const HomePage = () => (
-  <div>HomePage</div>
+  <>
+    <HomeSlider />
+  </>
 );
 
 export default HomePage;
