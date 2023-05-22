@@ -1,15 +1,25 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
-const HomeSlider = () => (
+const HomeSlider = () => {
+  const { totalParks } = useSelector((store) => store.parkData);
 
-  <main>
-    <div className="web-title">
-      <h1>Wild Vista</h1>
-    </div>
-    <div>
-      <h3>35 Parks to explore</h3>
-    </div>
-  </main>
-);
+  return (
+    <main>
+      <div className="web-title">
+        <h1>Wild Vista</h1>
+      </div>
+      <div>
+        <h3>
+          {totalParks}
+          Parks to explore
+        </h3>
+      </div>
+      <div>
+        <h3>535 Activities</h3>
+      </div>
+    </main>
+  );
+};
 
 export default HomeSlider;

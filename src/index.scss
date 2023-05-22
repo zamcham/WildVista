@@ -8,5 +8,9 @@ html {
 }
 
 main {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  height: 40vh;
   background-color: pink;
 }

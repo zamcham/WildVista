@@ -5,6 +5,7 @@ const baseURL = 'https://developer.nps.gov/api/v1/parks?api_key=';
 
 const initialState = {
   parks: [],
+  totalParks: 0,
   isLoading: true,
 };
 
@@ -22,6 +23,7 @@ const parksSlice = createSlice({
     [getParkData.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.parks = action.payload;
+      state.totalParks = action.payload.total;
     },
     [getParkData.rejected]: (state) => {
       state.isLoading = false;
