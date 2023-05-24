@@ -1,7 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
+import {
+  BrowserRouter as Router, Routes, Route, Link,
+} from 'react-router-dom';
 import { useEffect } from 'react';
 import HomePage from './pages/HomePage';
 import { getParkData } from './features/parksSlice';
+import wvlogo from './images/wvlogo.png';
 
 function App() {
   const dispatch = useDispatch();
@@ -20,9 +24,20 @@ function App() {
   }
 
   return (
-    <>
-      <HomePage />
-    </>
+    <Router>
+      <nav>
+        <div className="back-button">
+          <span>Back</span>
+        </div>
+        <div className="branding">
+          <Link to="/">Wild Vista</Link>
+          <img src={wvlogo} alt="logo" className="logo" />
+        </div>
+      </nav>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+    </Router>
   );
 }
 export default App;

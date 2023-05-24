@@ -4,11 +4,47 @@ $dark-pink: #B03868;
 
 html {
   font-size: 62.5%;
+  max-width: 390px;
+  margin: auto;
 }
 
 * {
   margin: 0;
   padding: 0;
+}
+
+nav {
+  background-color: $pink-color;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  height: 3vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5px;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .branding {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    img {
+      height: 3vh;
+      max-height: 400px;
+      width: auto;
+    }
+
+    * {
+      margin: 0 5px;
+    }
+  }
+
 }
 
 main {

@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import StateCard from './StateCard';
+import StateActivities from './StateActivities';
 
 const StatesWithParks = () => {
   const { statesData } = useSelector((store) => store.parkData);
   const [searchTerm, setSearchTerm] = useState('');
+  const [selectedState, setSelectedState] = useState(null);
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
+  };
+
+  const handleStateCardClick = (stateCode) => {
+    setSelectedState(stateCode);
   };
 
   // Filter the stateArray based on the search term
@@ -34,9 +40,11 @@ const StatesWithParks = () => {
             stateParks={state.totalParks}
             stateTotalActivities={state.totalActivities}
             stateTotalTopics={state.totalTopics}
+            onClick={() => handleStateCardClick(state.stateCode)}
           />
         ))}
       </div>
+      {selectedState && <StateActivities stateCode={selectedState} />}
     </>
 
   );

@@ -7,9 +7,6 @@ const HomeSlider = () => {
   return (
     <>
       <main>
-        <div className="web-title">
-          <h1>Wild Vista</h1>
-        </div>
         <div className="totalparks">
           <h3 className="stats">
             {totalParks}
