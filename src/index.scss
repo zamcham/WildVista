@@ -45,7 +45,18 @@ main {
 
 .filter-name {
   background-color: $pink-color;
+  color: white;
+  text-align: center;
+  font-size: 1.3rem;
   height: 35px;
+
+
+}
+
+.search-bar {
+  width: 80%;
+  padding: 10px;
+  border: none;
 }
 
 .states-container {
