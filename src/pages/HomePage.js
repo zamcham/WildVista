@@ -1,11 +1,10 @@
-import HomeSlider from '../components/HomeSlider';
-import StatesWithParks from '../components/StatesWithParks';
-// import StateActivities from '../components/StateActivities';
+import HeroSection from '../components/HeroSection';
+import DataContainer from '../components/DataContainer';
 
 const HomePage = () => (
   <>
-    <HomeSlider />
-    <StatesWithParks />
+    <HeroSection />
+    <DataContainer />
   </>
 );
 

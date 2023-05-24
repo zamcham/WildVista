@@ -4,6 +4,7 @@ import {
 } from 'react-router-dom';
 import { useEffect } from 'react';
 import HomePage from './pages/HomePage';
+import DetailsPage from './pages/DetailsPage';
 import { getParkData } from './features/parksSlice';
 import wvlogo from './images/wvlogo.png';
 
@@ -36,6 +37,7 @@ function App() {
       </nav>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/details" element={<DetailsPage />} />
       </Routes>
     </Router>
   );
