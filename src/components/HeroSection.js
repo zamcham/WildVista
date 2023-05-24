@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-const HomeSlider = () => {
+const HeroSection = () => {
   const { totalParks, totalActivities } = useSelector((store) => store.parkData);
 
   return (
@@ -31,4 +31,4 @@ const HomeSlider = () => {
   );
 };
 
-export default HomeSlider;
+export default HeroSection;
