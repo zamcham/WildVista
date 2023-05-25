@@ -28,7 +28,7 @@ const DataContainer = () => {
       <input
         className="search-bar"
         type="text"
-        placeholder="Search state..."
+        placeholder="Enter state code..."
         value={searchTerm}
         onChange={handleSearchChange}
       />
