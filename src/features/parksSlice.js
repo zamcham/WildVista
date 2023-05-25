@@ -43,7 +43,7 @@ export const getParkData = createAsyncThunk('parks/getParkData', async (_, { get
   return rejectWithValue('No active state selected');
 });
 
-const calculateTotalActivities = (parks) => {
+export const calculateTotalActivities = (parks) => {
   let totalActivities = 0;
   parks.forEach((park) => {
     totalActivities += park.activities.length;
@@ -51,7 +51,7 @@ const calculateTotalActivities = (parks) => {
   return totalActivities;
 };
 
-const calculateTotalTopics = (parks) => {
+export const calculateTotalTopics = (parks) => {
   const topicsSet = new Set();
   parks.forEach((park) => {
     park.topics.forEach((topic) => {
@@ -61,7 +61,7 @@ const calculateTotalTopics = (parks) => {
   return topicsSet.size;
 };
 
-const calculateStatesData = (parks) => {
+export const calculateStatesData = (parks) => {
   const statesData = {};
   let id = 1; // Counter variable for generating IDs
   parks.forEach((park) => {
