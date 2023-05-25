@@ -19,7 +19,6 @@ const StateCard = ({
   return (
     <div className="state-card">
       <h2>{stateCode}</h2>
-      {/* Rest of the component */}
       <div className="card-stats">
         <div className="stat">
           <p>{stateParks}</p>
@@ -34,7 +33,6 @@ const StateCard = ({
           <p>Topics</p>
         </div>
       </div>
-      {/* Link component with onClick event handler */}
       <Link to="/details" onClick={handleViewDetailsClick}>
         View Details
       </Link>

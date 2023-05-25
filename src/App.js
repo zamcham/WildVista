@@ -6,16 +6,20 @@ import { useEffect } from 'react';
 import HomePage from './pages/HomePage';
 import DetailsPage from './pages/DetailsPage';
 import HeroSection from './components/HeroSection';
-import { getParkData } from './features/parksSlice';
+import { getParkData, resetState } from './features/parksSlice';
 import wvlogo from './images/wvlogo.png';
 
 function App() {
   const dispatch = useDispatch();
-  const { isLoading } = useSelector((store) => store.parkData);
+  const { isLoading, stateIsSelected } = useSelector((store) => store.parkData);
 
   useEffect(() => {
     dispatch(getParkData());
   }, [dispatch]);
+
+  const handleResetState = () => {
+    dispatch(resetState());
+  };
 
   if (isLoading) {
     return (
@@ -29,10 +33,16 @@ function App() {
     <Router>
       <nav>
         <div className="back-button">
-          <span>Back</span>
+          {stateIsSelected ? (
+            <Link to="/" onClick={handleResetState}>
+              Back
+            </Link>
+          ) : null}
         </div>
         <div className="branding">
-          <Link to="/">Wild Vista</Link>
+          <Link to="/" onClick={handleResetState}>
+            Wild Vista
+          </Link>
           <img src={wvlogo} alt="logo" className="logo" />
         </div>
       </nav>

@@ -14,6 +14,7 @@ const initialState = {
   activeStateData: [],
   initialCall: false,
   isLoading: true,
+  selectedStateTotalActivities: 0,
 };
 
 export const getParkData = createAsyncThunk('parks/getParkData', async (_, { getState, rejectWithValue }) => {
@@ -91,6 +92,12 @@ const parksSlice = createSlice({
       state.activeState = stateCode;
       state.stateIsSelected = true;
     },
+    resetState: (state) => {
+      state.stateIsSelected = false;
+      state.activeState = null;
+      state.activeStateData = [];
+      state.selectedStateTotalActivities = null;
+    },
   },
   extraReducers: {
     [getParkData.pending]: (state) => {
@@ -108,7 +115,12 @@ const parksSlice = createSlice({
         state.statesData = calculateStatesData(action.payload.data);
         state.initialCall = true;
       } else {
+        let totalActivities = 0;
         state.activeStateData = action.payload;
+        state.activeStateData.data.forEach((item) => {
+          totalActivities += item.activities.length;
+        });
+        state.selectedStateTotalActivities = totalActivities;
       }
     },
     [getParkData.rejected]: (state) => {
@@ -117,5 +129,5 @@ const parksSlice = createSlice({
   },
 });
 
-export const { assignState } = parksSlice.actions;
+export const { assignState, resetState, setSelectedStateTotalActivities } = parksSlice.actions;
 export default parksSlice.reducer;
