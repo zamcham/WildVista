@@ -22,7 +22,7 @@ const DetailsPage = () => {
   }
 
   return (
-    <div>
+    <div className="park-cards-container">
       {activeStateData.data.map((state) => (
         <ParkCard
           key={state.id}

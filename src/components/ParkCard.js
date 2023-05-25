@@ -9,21 +9,23 @@ const ParkCard = ({
       <h4>{fullName}</h4>
       <p>{parkDescription}</p>
     </div>
-    <div className="park-stats">
-      <p className="total-stat-park-card">
-        {parkTotalActivities}
-      </p>
-      <p className="text-park-card">
-        Activities
-      </p>
-    </div>
-    <div className="park-stats">
-      <p className="total-stat-park-card">
-        {parkTotalTopics}
-      </p>
-      <p className="text-park-card">
-        Topics
-      </p>
+    <div className="park-stats-container">
+      <div className="park-stats">
+        <p className="total-stat-park-card">
+          {parkTotalActivities}
+        </p>
+        <p className="text-park-card">
+          Activities
+        </p>
+      </div>
+      <div className="park-stats">
+        <p className="total-stat-park-card">
+          {parkTotalTopics}
+        </p>
+        <p className="text-park-card">
+          Topics
+        </p>
+      </div>
     </div>
 
   </div>

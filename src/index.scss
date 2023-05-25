@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Roboto:wght@300;400;500;700&display=swap');
-$pink-color: rgba(236,76,138, 1);
-$dark-pink: #B03868;
+$pink-color: rgba(236, 76, 138, 1);
+$dark-pink: #9e2f5c;
 
 html {
   font-size: 62.5%;
@@ -44,7 +44,6 @@ nav {
       margin: 0 5px;
     }
   }
-
 }
 
 main {
@@ -52,7 +51,7 @@ main {
   flex-direction: column;
   align-items: end;
   height: 40vh;
-  background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.5), rgba(236,76,138, 1)), url('https://www.nps.gov/common/uploads/structured_data/3C83C0FF-1DD8-B71B-0B85BBD2186E9F44.jpg');
+  background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.5), rgba(236, 76, 138, 1)), url('https://www.nps.gov/common/uploads/structured_data/3C83C0FF-1DD8-B71B-0B85BBD2186E9F44.jpg');
   background-size: cover;
   background-position: center;
   color: white;
@@ -121,4 +120,55 @@ input:focus {
       }
     }
   }
+}
+
+.park-cards-container {
+  background-color: black;
+  padding-top: 5px;
+
+  .park-card {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    margin: 7px 10px;
+    padding: 5px;
+    border-radius: 5px;
+
+    .park-name-desc {
+      h4 {
+        font-size: 1.4rem;
+      }
+
+      p {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.2rem;
+        margin: 4px 0;
+      }
+    }
+
+    .park-stats-container {
+      display: flex;
+
+      .park-stats {
+        padding: 0 5px;
+        margin: 5px;
+        font-size: 1.2rem;
+        text-align: center;
+        text-transform: uppercase;
+
+        .total-stat-park-card {
+          font-size: 1.5rem;
+          font-weight: 700;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+.park-cards-container > div:nth-child(odd) {
+  background-color: $dark-pink;
+}
+
+.park-cards-container > div:nth-child(even) {
+  background-color: $pink-color;
 }

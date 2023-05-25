@@ -109,7 +109,6 @@ const parksSlice = createSlice({
         state.initialCall = true;
       } else {
         state.activeStateData = action.payload;
-        console.log(state.activeStateData);
       }
     },
     [getParkData.rejected]: (state) => {
