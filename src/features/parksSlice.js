@@ -9,12 +9,38 @@ const initialState = {
   totalActivities: 0,
   totalTopics: 0,
   statesData: {},
+  stateIsSelected: false,
+  activeState: null,
+  activeStateData: [],
+  initialCall: false,
   isLoading: true,
 };
 
-export const getParkData = createAsyncThunk('cart/getCartItems', () => fetch(`${baseURL + key}&limit=200`)
-  .then((resp) => resp.json())
-  .catch((err) => console.log(err))); // eslint-disable-line no-console
+export const getParkData = createAsyncThunk('parks/getParkData', async (_, { getState, rejectWithValue }) => {
+  const { stateIsSelected, activeState, initialCall } = getState().parkData;
+
+  if (!stateIsSelected && !initialCall) {
+    try {
+      const response = await fetch(`${baseURL + key}&limit=100`);
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+
+  if (activeState && stateIsSelected) {
+    try {
+      const response = await fetch(`${baseURL + key}&limit=100&q=${activeState}`);
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+
+  return rejectWithValue('No active state selected');
+});
 
 const calculateTotalActivities = (parks) => {
   let totalActivities = 0;
@@ -59,17 +85,32 @@ const calculateStatesData = (parks) => {
 const parksSlice = createSlice({
   name: 'parks',
   initialState,
+  reducers: {
+    assignState: (state, action) => {
+      const stateCode = action.payload;
+      state.activeState = stateCode;
+      state.stateIsSelected = true;
+    },
+  },
   extraReducers: {
     [getParkData.pending]: (state) => {
-      state.isLoading = true;
+      if (!state.initialCall) {
+        state.isLoading = true;
+      }
     },
     [getParkData.fulfilled]: (state, action) => {
       state.isLoading = false;
-      state.parks = action.payload;
-      state.totalParks = action.payload.total;
-      state.totalActivities = calculateTotalActivities(action.payload.data);
-      state.totalTopics = calculateTotalTopics(action.payload.data);
-      state.statesData = calculateStatesData(action.payload.data);
+      if (!state.stateIsSelected && !state.initialCall) {
+        state.parks = action.payload;
+        state.totalParks = action.payload.total;
+        state.totalActivities = calculateTotalActivities(action.payload.data);
+        state.totalTopics = calculateTotalTopics(action.payload.data);
+        state.statesData = calculateStatesData(action.payload.data);
+        state.initialCall = true;
+      } else {
+        state.activeStateData = action.payload;
+        console.log(state.activeStateData);
+      }
     },
     [getParkData.rejected]: (state) => {
       state.isLoading = false;
@@ -77,4 +118,5 @@ const parksSlice = createSlice({
   },
 });
 
+export const { assignState } = parksSlice.actions;
 export default parksSlice.reducer;

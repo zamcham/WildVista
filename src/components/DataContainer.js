@@ -40,7 +40,7 @@ const DataContainer = () => {
             stateParks={state.totalParks}
             stateTotalActivities={state.totalActivities}
             stateTotalTopics={state.totalTopics}
-            onClick={() => handleStateCardClick(state.stateCode)}
+            onClick={handleStateCardClick}
           />
         ))}
       </div>

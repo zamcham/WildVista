@@ -5,6 +5,7 @@ import {
 import { useEffect } from 'react';
 import HomePage from './pages/HomePage';
 import DetailsPage from './pages/DetailsPage';
+import HeroSection from './components/HeroSection';
 import { getParkData } from './features/parksSlice';
 import wvlogo from './images/wvlogo.png';
 
@@ -35,6 +36,7 @@ function App() {
           <img src={wvlogo} alt="logo" className="logo" />
         </div>
       </nav>
+      <HeroSection />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/details" element={<DetailsPage />} />

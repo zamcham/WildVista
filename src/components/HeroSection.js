@@ -24,9 +24,6 @@ const HeroSection = () => {
           </h4>
         </div>
       </main>
-      <div className="filter-name">
-        <h4>Parks, Activities and Topins in all states</h4>
-      </div>
     </>
   );
 };
