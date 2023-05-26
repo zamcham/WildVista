@@ -33,7 +33,7 @@ const StateCard = ({
           <p>Topics</p>
         </div>
       </div>
-      <Link to="/details" onClick={handleViewDetailsClick}>
+      <Link to={`/details/${stateCode}`} onClick={handleViewDetailsClick}>
         View Details
       </Link>
     </div>

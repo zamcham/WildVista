@@ -49,7 +49,7 @@ function App() {
       <HeroSection />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/details" element={<DetailsPage />} />
+        <Route path="/details/:stateCode" element={<DetailsPage />} />
       </Routes>
     </Router>
   );
