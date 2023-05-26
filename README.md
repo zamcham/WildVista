@@ -35,7 +35,7 @@
 
 The Wild Vista Explorer is a web application that allows users to explore and discover national parks in the United States. It provides a user-friendly interface for browsing parks, viewing park details, and searching for parks based on various criteria.
 
-[Check this quick video about the features](https://www.loom.com/share/28d7b84b9b644f37959210a7ebd82e3c)
+[Check this quick video about the features](https://www.loom.com/share/b01c9171cdbc413eb683467f9c61a6a3)
 
 ## 🛠 Built With <a name="built-with"></a>
 
