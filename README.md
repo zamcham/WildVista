@@ -64,7 +64,7 @@ The Wild Vista Explorer is a web application that allows users to explore and di
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://zamcham.github.io/Level-Up-Summit/)
+- [Live Demo Link](https://wild-vista.onrender.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
